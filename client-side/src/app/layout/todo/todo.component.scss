@@ -1,0 +1,16 @@
+.button-row {
+    margin: -15px 0px 20px 15px;
+}
+
+.todo-container {
+    border: 1px solid rgb(188, 186, 186);
+    border-radius: 10px;
+    height: 80vh;
+    padding-top: 10px;
+
+    .todo-item {
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,15 @@
+<nav class="navbar fixed-top d-flex justify-content-between">
+    <div class="row">
+        <div class="header-logo navbar-brand">
+            <img class="logo" src="assets/images/law-advisor-header.svg" alt="logo">
+        </div>
+        <div class="user-section ml-auto">
+            <div class="row">
+                <div class="user">
+                    <h5 style="color: white">Welcome <strong>{{this.username}}</strong></h5>
+                </div>
+                <button type="button" class="btn btn-dark" (click)="this.logout()"><i class="fa fa-sign-out"></i></button>
+            </div>
+        </div>
+    </div>
+</nav>

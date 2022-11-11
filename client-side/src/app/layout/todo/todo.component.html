@@ -1,0 +1,166 @@
+<div class="col-lg-12">
+    <div class="row">
+        <div class="button-row">
+            <button type="button" class="btn btn-success" (click)="this.isDialogVisible = true"><i class="fa fa-plus" style="margin-right: 10px"></i>Add</button>
+        </div>
+    </div>
+    <div class="row" cdkDropListGroup>
+        <div class="col-lg-3">
+            <div 
+                class="col-lg-12 todo-container"
+                cdkDropList
+                [cdkDropListData]="this.todoList"
+                (cdkDropListDropped)="this.drop($event)"
+            >
+                <h4>To Do</h4>
+                <hr>
+                <div *ngFor="let item of this.todoList" cdkDrag [cdkDragData]="item" class="todo-item">
+                    <div class="row" style="padding: 10px 20px 0px 20px;">
+                        <div class="col-lg-10">
+                            <div>
+                                <div class="row">
+                                    <label for="title">Title: </label>
+                                    <p style="font-weight: bold">{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <label for="title">Description: </label>
+                                    <p style="font-weight: bold">{{item.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 ml-auto">
+                            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger" (click)="this.delete(item._id)"></button>
+                            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning" (click)="this.edit(item)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div
+                class="col-lg-12 todo-container"
+                cdkDropList
+                [cdkDropListData]="this.startedList"
+                (cdkDropListDropped)="this.drop($event)"
+            >
+                <h4>Started</h4>
+                <hr>
+                <div *ngFor="let item of this.startedList" cdkDrag [cdkDragData]="item" class="todo-item">
+                    <div class="row" style="padding: 10px 20px 0px 20px;">
+                        <div class="col-lg-10">
+                            <div>
+                                <div class="row">
+                                    <label for="title">Title: </label>
+                                    <p style="font-weight: bold">{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <label for="title">Description: </label>
+                                    <p style="font-weight: bold">{{item.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 ml-auto">
+                            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger" (click)="this.delete(item._id)"></button>
+                            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning" (click)="this.edit(item)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div
+                class="col-lg-12 todo-container"
+                cdkDropList
+                [cdkDropListData]="this.forTestingList"
+                (cdkDropListDropped)="this.drop($event)"
+            >
+                <h4>For Testing</h4>
+                <hr>
+                <div *ngFor="let item of this.forTestingList" cdkDrag [cdkDragData]="item" class="todo-item">
+                    <div class="row" style="padding: 10px 20px 0px 20px;">
+                        <div class="col-lg-10">
+                            <div>
+                                <div class="row">
+                                    <label for="title">Title: </label>
+                                    <p style="font-weight: bold">{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <label for="title">Description: </label>
+                                    <p style="font-weight: bold">{{item.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 ml-auto">
+                            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger" (click)="this.delete(item._id)"></button>
+                            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning" (click)="this.edit(item)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div
+                class="col-lg-12 todo-container"
+                cdkDropList
+                [cdkDropListData]="this.completedList"
+                (cdkDropListDropped)="this.drop($event)"
+            >
+                <h4>Completed</h4>
+                <hr>
+                <div *ngFor="let item of this.completedList" cdkDrag [cdkDragData]="item" class="todo-item">
+                    <div class="row" style="padding: 10px 20px 0px 20px;">
+                        <div class="col-lg-10">
+                            <div>
+                                <div class="row">
+                                    <label for="title">Title: </label>
+                                    <p style="font-weight: bold">{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <label for="title">Description: </label>
+                                    <p style="font-weight: bold">{{item.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 ml-auto">
+                            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-danger" (click)="this.delete(item._id)"></button>
+                            <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text p-button-warning" (click)="this.edit(item)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Create To Do" [(visible)]="this.isDialogVisible" [modal]="true" [closable]="false" [style]="{'width': '30vw'}">
+    <div class="col-lg-12" style="padding: 0">
+        <form [formGroup]="this.todoForm">
+            <mat-form-field style="width: 100% !important" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 100% !important" appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description" (keydown.enter)="this.isEdit ? this.update(todoForm.value) : this.create(todoForm.value)" required>
+            </mat-form-field>
+            <br>
+            <div class="row">
+                <div class="ml-auto" style="padding-right: 12px">
+                    <button type="button" class="btn btn-primary px-4" style="margin-right: 10px" [disabled]="!todoForm.valid" (click)="this.isEdit ? this.update(todoForm.value) : this.create(todoForm.value)">Save</button>
+                    <button type="button" class="btn btn-danger px-4" (click)="this.isDialogVisible = false">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</p-dialog>
+
+<p-toast [style]="{marginTop: '100px', width: '400px'}"></p-toast>

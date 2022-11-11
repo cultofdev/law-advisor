@@ -1,0 +1,37 @@
+<div class="col-lg-12 login-container">
+    <div class="col-lg-3 login-box">
+        <div class="logo-container">
+            <img class="logo" src="assets/images/law-advisor.svg" alt="logo">
+        </div>
+        <div class="col-lg-12 login-field">
+            <h3 style="text-align: center">Sign In</h3>
+            <br>
+            <form [formGroup]="this.loginForm">
+                <mat-form-field style="width: 100% !important" appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <mat-icon matSuffix><i class="fa fa-user"></i></mat-icon>
+                    <input matInput formControlName="username" required>
+                    <mat-error *ngIf="loginForm.get('username')?.errors"></mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field style="width: 100% !important" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <mat-icon matSuffix><i class="fa fa-lock"></i></mat-icon>
+                    <input matInput type="password" formControlName="password" (keydown.enter)="onSubmit(loginForm.value)" required>
+                    <mat-error *ngIf="loginForm.get('password')?.errors"></mat-error>
+                </mat-form-field>
+
+                <div class="row" style="margin-top: 15px">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary px-4" (click)="onSubmit(loginForm.value)" [disabled]="!loginForm.valid">Login</button>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-link px-0" (click)="redirect('signup')">Signup here</button>
+                    </div>
+                </div>
+
+                <p-messages [style]="{'margin-top': '45px'}" [closable]="false"></p-messages>
+            </form>
+        </div>
+    </div>
+</div>

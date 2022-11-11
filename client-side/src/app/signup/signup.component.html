@@ -1,0 +1,57 @@
+<div class="col-lg-12 signup-container">
+    <div class="col-lg-3 signup-box">
+        <div class="logo-container">
+            <img class="logo" src="assets/images/law-advisor.svg" alt="logo">
+        </div>
+        <div class="col-lg-12 signup-field">
+            <h3 style="text-align: center">Sign Up</h3>
+            <br>
+            <form [formGroup]="this.signupForm">
+                <mat-form-field style="width: 100% !important" appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <mat-icon matSuffix><i class="fa fa-user"></i></mat-icon>
+                    <input matInput formControlName="username">
+                    <mat-error *ngFor="let validation of formValidationMessages.username">
+                        <mat-error class="error-message" *ngIf="signupForm.get('username')?.hasError(validation.type) && (signupForm.get('username')?.dirty || signupForm.get('username')?.touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field style="width: 100% !important" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <mat-icon matSuffix><i class="fa fa-lock"></i></mat-icon>
+                    <input matInput type="password" formControlName="password">
+                    <mat-error *ngFor="let validation of formValidationMessages.password">
+                        <mat-error class="error-message" *ngIf="signupForm.get('password')?.hasError(validation.type) && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field style="width: 100% !important" appearance="fill">
+                    <mat-label>Retype Password</mat-label>
+                    <mat-icon matSuffix><i class="fa fa-lock"></i></mat-icon>
+                    <input matInput type="password" formControlName="confirmPassword" (keydown.enter)="onSubmit(signupForm.value)">
+                    <mat-error *ngFor="let validation of formValidationMessages.confirmPassword">
+                        <mat-error class="error-message" *ngIf="signupForm.get('confirmPassword')?.hasError(validation.type) && (signupForm.get('confirmPassword')?.dirty || signupForm.get('confirmPassword')?.touched)">{{validation.message}}</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="row" style="margin-top: 15px">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary px-4" (click)="onSubmit(signupForm.value)" [disabled]="signupForm.invalid">Signup</button>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-link px-0" (click)="redirect('signin')">Back to Signin</button>
+                    </div>
+                </div>
+
+                <p-messages [style]="{'margin-top': '35px'}" [closable]="false"></p-messages>
+            </form>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Success!" [(visible)]="this.isVisible" [style]="{width: '30vw'}" [closable]="false" [modal]="true">
+    <p>You have successfully registered your account!, click the <strong>OK</strong> button to go back to Signin page.</p>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="this.redirect('signin')" label="OK" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>

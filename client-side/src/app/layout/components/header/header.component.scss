@@ -1,0 +1,20 @@
+$topnav-background-color: #58a6bc;
+
+:host {
+    .navbar {
+        background-color: $topnav-background-color;
+
+        .header-logo {
+            padding-left: 10px;
+        }
+
+        .user-section {
+            padding-right: 30px;
+
+            .user {
+                margin-top: 10px;
+                margin-right: 25px;
+            }
+        }
+    }
+}
