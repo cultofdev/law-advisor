@@ -1,5 +1,5 @@
 # law-advisor
-Law Advisor - Candidate activity <br />
+Law Advisor - Candidate activity (Mark Anthony Solis) <br />
 
 Architecture:
 - client-side: <br />
